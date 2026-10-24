@@ -1,0 +1,28 @@
+# Enable the CoreText font provider in libass on Apple platforms.
+#
+# Without it, libass finds no system font ("can't find selected font provider")
+# and ASS/SSA subtitles render nothing unless the file embeds its own fonts.
+#
+# Backport of VideoLAN commit f8dc762ea0 ("contrib/ass: enable coretext on anyAppleOS").
+diff --git a/contrib/src/ass/rules.mak b/contrib/src/ass/rules.mak
+--- a/contrib/src/ass/rules.mak
++++ b/contrib/src/ass/rules.mak
+@@ -16,6 +16,7 @@
+ else
+ ifdef HAVE_DARWIN_OS
+ WITH_FONTCONFIG = 0
++WITH_CORETEXT = 1
+ else
+ ifdef HAVE_WIN32
+ WITH_FONTCONFIG = 0
+@@ -53,6 +54,10 @@
+ ASS_CONF += -Ddirectwrite=enabled
+ endif
+ 
++ifeq ($(WITH_CORETEXT), 1)
++ASS_CONF += -Dcoretext=enabled
++endif
++
+ ifeq ($(WITH_ASS_ASM), 1)
+ ASS_CONF += -Dasm=enabled
+ endif

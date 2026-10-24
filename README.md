@@ -9,6 +9,11 @@
 [![Swift versions](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fharflabs%2FSwiftVLC%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/harflabs/SwiftVLC)
 [![Platforms](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fharflabs%2FSwiftVLC%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/harflabs/SwiftVLC)
 
+> **Fork note (`gaabsi/SwiftVLC`, branch `sweetfin`):** same as SwiftVLC 1.0.0, plus
+> [`scripts/patches/0007-ass-coretext.patch`](scripts/patches/0007-ass-coretext.patch), which enables the
+> CoreText font provider in libass so ASS/SSA subtitles render with system fonts. It is a backport of
+> VideoLAN commit `f8dc762ea0`. The release ships iOS, tvOS and Mac Catalyst slices only.
+
 A Swift wrapper around [libVLC](https://www.videolan.org/vlc/libvlc.html) for iOS, macOS, tvOS, visionOS, and Mac Catalyst.
 
 ## Why?
